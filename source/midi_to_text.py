@@ -25,7 +25,8 @@ def merge_articulations(note_to_seq):
     # ride
     for i, _ in enumerate(note_to_seq[51]):
         if note_to_seq[53][i] == 'o':
-            note_to_seq[51][i] = 'b'
+            #note_to_seq[51][i] = 'b'
+            note_to_seq[51][i] = 'o'
         if note_to_seq[59][i] == 'o':
             note_to_seq[51][i] = 'o'
     # crash
@@ -81,9 +82,11 @@ note_to_drum = {
 primary_notes = [49, 51, 42, 38, 36, 50]
 #secondary_notes = [40, 37, 53, 46, 22, 26, 39, 58, 59, 57]
 
-midi_dir = '../e-gmd-v1.0.0/midi'
+#midi_dir = '../e-gmd-v1.0.0/midi'
+midi_dir = '../data_midi'
 midi_fnames = os.listdir(midi_dir)
-text_dir = '../e-gmd-v1.0.0/text_v1'
+#text_dir = '../e-gmd-v1.0.0/text_v1'
+text_dir = '../data_text'
 
 file_count = 0
 for midi_fname in midi_fnames:
