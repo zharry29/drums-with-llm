@@ -2,7 +2,7 @@ from mido import MidiFile, MidiTrack, Message, MetaMessage
 import os
 import json
 
-primary_notes = [49, 51, 42, 38, 36, 50]
+primary_notes = [49, 51, 38, 36, 42, 50]
 
 def convert_to_midi(text, out_file):
     mid = MidiFile(type=1, ticks_per_beat=480)
@@ -58,4 +58,9 @@ def data_to_midi():
 if __name__ == '__main__':
     #text = "----o-\n------\n--o---\n------\n---oo-\n------\n--o---\n------\n--o-o-\n------\n--o---\n------\n---oo-\n------\n--o---\n------\n--o-o-\n------\n--o---\n------\n--ooo-\n------\n--o---\n------\nooo-o-\n------\n--o---\n------\n---oo-\n------\n------\n------\n--o-o-\n------\n--o---\n------\n---oo-\n------\n--o---\n------\n----o-\n------\n--o---\n------\n---oo-\n------\n--o---\n------\n----o-\n------\n--o---\n------\n--ooo-\n------\n--o---\n------\n----o-\n------\n--o---\n------\n---oo-\n------\n---o--\n---o--\nEND"
     #convert_to_midi(text, "test.mid")
-    data_to_midi()
+    #data_to_midi()
+    fnames = os.listdir('../data_text')
+    for fname in fnames:
+        with open('../data_text/'+fname) as f:
+            text = f.read()
+        convert_to_midi(text, '../data_text_midi/'+fname[:-4]+'.mid')

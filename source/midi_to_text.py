@@ -29,9 +29,17 @@ def merge_articulations(note_to_seq):
             note_to_seq[51][i] = 'o'
         if note_to_seq[59][i] == 'o':
             note_to_seq[51][i] = 'o'
+        if note_to_seq[51][i] == 'o':
+            note_to_seq[51][i] = 'o'
     # crash
     for i, _ in enumerate(note_to_seq[49]):
         if note_to_seq[57][i] == 'o':
+            note_to_seq[49][i] = 'o'
+        if note_to_seq[55][i] == 'o':
+            note_to_seq[49][i] = 'o'
+        if note_to_seq[57][i] == 'o':
+            note_to_seq[49][i] = 'o'
+        if note_to_seq[52][i] == 'o':
             note_to_seq[49][i] = 'o'
     # hihat
     for i, _ in enumerate(note_to_seq[42]):
@@ -39,6 +47,12 @@ def merge_articulations(note_to_seq):
         #    note_to_seq[42][i] = 'x'
         #note_to_seq[42][i] = 'o'
         if note_to_seq[46][i] == 'o':
+            note_to_seq[42][i] = 'o'
+        if note_to_seq[42][i] == 'o':
+            note_to_seq[42][i] = 'o'
+        if note_to_seq[22][i] == 'o':
+            note_to_seq[42][i] = 'o'
+        if note_to_seq[26][i] == 'o':
             note_to_seq[42][i] = 'o'
     # toms
     for i, _ in enumerate(note_to_seq[50]):
@@ -50,33 +64,37 @@ def merge_articulations(note_to_seq):
             note_to_seq[50][i] = 'o'
         if note_to_seq[43][i] == 'o':
             note_to_seq[50][i] = 'o'
+        if note_to_seq[50][i] == 'o':
+            note_to_seq[50][i] = 'o'
+        if note_to_seq[58][i] == 'o':
+            note_to_seq[50][i] = 'o'
 
 note_to_drum = {
-    49: "CC",
-    57: "CC2",
-    51: "RC",
-    59: "RC2",
-    55: "SC",
-    42: "HH",
-    38: "SD",
-    36: "KD",
-    44: "FH",
-    50: "T1",
-    48: "T2",
-    47: "T3",
-    45: "T4",
-    43: "FT",
-    40: "RS",
-    37: "SS",
-    52: "CH",
+    49: "CC1B",
+    55: "CC1E",
+    57: "CC2B",
+    52: "CC2E",
+    51: "RCB",
+    59: "RCE",
     53: "RB", 
-    46: "OH",
+    38: "SD",
+    40: "SDR",
+    37: "SDS",
+    36: "KD",
+    42: "HHB",
+    22: "HHE",
+    46: "HHOB",
+    26: "HHOE",
+    44: "HHF",
+    48: "T1",
+    50: "T1R",
+    45: "T2",
+    47: "T2R",
+    43: "T3",
+    58: "T3R",
     54: "TB",
     56: "CB",
-    22: "??",
-    26: "??",
     39: "??",
-    58: "??",
 }
 
 primary_notes = [49, 51, 42, 38, 36, 50]
@@ -90,8 +108,8 @@ text_dir = '../data_text'
 
 file_count = 0
 for midi_fname in midi_fnames:
-    if file_count % 1000 == 0:
-        print(file_count)
+    #if file_count % 1000 == 0:
+    print(file_count)
     file_count += 1
     #print(os.path.join(midi_dir, midi_fname))
     mid = MidiFile(os.path.join(midi_dir, midi_fname), clip=True)
@@ -116,17 +134,17 @@ for midi_fname in midi_fnames:
     max_ticks = 0
     cumulative_time = 0
 
-    for m in list(mid.tracks[1]):
+    for m in list(mid.tracks[0]):
         max_ticks += m.time
 
     #MAX_BEATS = int(max_ticks / mid.ticks_per_beat)
-    MAX_BEATS = 4 * time_signature[0] # 4 measures * beats per measure
+    MAX_BEATS = 16 * time_signature[0] # 4 measures * beats per measure
     MAX_16THS = (MAX_BEATS)*4 # max beats * 4 16ths per beat
     #print(MAX_16THS)
 
     note_to_seq = {k:['-']*(MAX_16THS) for k in note_to_drum.keys()}
 
-    for m in list(mid.tracks[1]):
+    for m in list(mid.tracks[0]):
         cumulative_time += m.time
         if m.type == "note_on" and m.velocity > 0:
             #print(note_to_drum[m.note], end=' ')
@@ -139,14 +157,15 @@ for midi_fname in midi_fnames:
                 break
             else:
                 note_to_seq[m.note][num_16th] = 'o'
-    else:
-        continue
+    #else:
+    #    print('xxx')
+    #    continue
 
     #print(note_to_seq)
 
     merge_articulations(note_to_seq)
 
-    with open(os.path.join(text_dir, midi_fname[:-5]+'.txt'), 'w') as fw:
+    with open(os.path.join(text_dir, midi_fname[:-4]+'.txt'), 'w') as fw:
         notes = list(note_to_seq.keys())
         notes = [x for x in notes if x in primary_notes]
         #for note in notes:
