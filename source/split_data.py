@@ -2,31 +2,14 @@ import os
 import json
 import csv
 
-
-
-fnames = os.listdir("../data_text")
-
-jobj_list = []
-appeared_strip = set()
-for fname in fnames:
-    with open(os.path.join("../data_text", fname)) as f:
-        strip = f.read()
-    if strip in appeared_strip:
-        continue
-    fname =  fname[:-4]
-    drummer_id, genre, bpm, _, time_sig, track_id = fname.split('_')
-    jobj = {"fname": fname,"drummer_id": drummer_id, "genre": genre, "bpm": bpm, "time_sig":time_sig, "track_id":track_id, "strip": strip}
-    jobj_list.append(jobj)
-    appeared_strip.add(strip)
-
-random.shuffle(jobj_list)
-num_examples = len(jobj_list)
-
-with open("../data_split/train.json", 'w') as f:
-    json.dump(jobj_list[:int(num_examples*.8)],f, indent=4)
-
-with open("../data_split/dev.json", 'w') as f:
-    json.dump(jobj_list[int(num_examples*.8):int(num_examples*.9)],f, indent=4)
-
-with open("../data_split/test.json", 'w') as f:
-    json.dump(jobj_list[int(num_examples*.8):],f, indent=4)
+with open("../groove/info.csv") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        fname = row["midi_filename"]
+        fname = fname.split('/')[0][7:] + '_' + fname.split('/')[-1][:-4]
+        split = row["split"]
+        if split == "validation":
+            split = "dev"
+        os.system(f"cp ../data_midi/{fname}.mid ../data_midi/{split}/{fname}.mid")
+        os.system(f"cp ../data_text/{fname}.txt ../data_text/{split}/{fname}.txt")
+        os.system(f"cp ../data_text_midi/{fname}.mid ../data_text_midi/{split}/{fname}.mid")
