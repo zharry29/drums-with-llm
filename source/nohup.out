@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "download_drum_covers.py", line 1, in <module>
-    from youtubesearchpython import SearchVideos
-ImportError: No module named youtubesearchpython
-Traceback (most recent call last):
-  File "download_drum_covers.py", line 1, in <module>
-    from youtubesearchpython import SearchVideos
-ImportError: No module named youtubesearchpython

@@ -6,7 +6,7 @@ def force_end_new_line(s):
 
 def prompt_gpt3(prompt):
     res = openai.Completion.create(
-    model="curie:ft-ccb-lab-members-2022-01-11-05-33-17",
+    model="davinci:ft-ccb-lab-members-2022-10-18-23-45-36",
     prompt=prompt,
     temperature=0.9,
     )

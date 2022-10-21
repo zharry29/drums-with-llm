@@ -56,9 +56,6 @@ def data_to_midi():
             convert_to_midi(text, fname)
 
 if __name__ == '__main__':
-    #text = "----o-\n------\n--o---\n------\n---oo-\n------\n--o---\n------\n--o-o-\n------\n--o---\n------\n---oo-\n------\n--o---\n------\n--o-o-\n------\n--o---\n------\n--ooo-\n------\n--o---\n------\nooo-o-\n------\n--o---\n------\n---oo-\n------\n------\n------\n--o-o-\n------\n--o---\n------\n---oo-\n------\n--o---\n------\n----o-\n------\n--o---\n------\n---oo-\n------\n--o---\n------\n----o-\n------\n--o---\n------\n--ooo-\n------\n--o---\n------\n----o-\n------\n--o---\n------\n---oo-\n------\n---o--\n---o--\nEND"
-    #convert_to_midi(text, "test.mid")
-    #data_to_midi()
     fnames = os.listdir('../data_text')
     for fname in fnames:
         with open('../data_text/'+fname) as f:
