@@ -6,7 +6,7 @@ import sys
 openai.api_key_path = "../source/api_keys/harry.key"
 model = sys.argv[1]
 model_to_name = {
-    "davinci": "davinci:ft-ccb-lab-members-2022-10-30-05-55-23",
+    "davinci": "davinci:ft-ccb-lab-members-2022-10-30-16-54-42",
     "curie": "curie:ft-ccb-lab-members-2022-10-28-02-14-43",
     "ada": "ada:ft-ccb-lab-members-2022-10-30-15-30-17"
 }
