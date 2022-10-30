@@ -6,9 +6,9 @@ import sys
 openai.api_key_path = "../source/api_keys/harry.key"
 model = sys.argv[1]
 model_to_name = {
-    "davinci": "davinci:ft-ccb-lab-members-2022-10-18-23-45-36",
+    "davinci": "davinci:ft-ccb-lab-members-2022-10-30-05-55-23",
     "curie": "curie:ft-ccb-lab-members-2022-10-28-02-14-43",
-    "ada": "ada:ft-ccb-lab-members-2022-10-29-02-43-53"
+    "ada": "ada:ft-ccb-lab-members-2022-10-30-03-13-13"
 }
 
 def prompt_gpt3(prompt):
@@ -29,6 +29,7 @@ for split in ["dev", "test"]:
             name = d["name"]
             gen = prompt_gpt3(prompt)
             gen_score = prompt + gen
+            gen_score = gen_score.replace('SEP\n','')
             #print(prompt)
             #print('========')
             #print(gen)
