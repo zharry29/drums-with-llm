@@ -8,7 +8,7 @@ model = sys.argv[1]
 model_to_name = {
     "davinci": "davinci:ft-ccb-lab-members-2022-10-30-05-55-23",
     "curie": "curie:ft-ccb-lab-members-2022-10-28-02-14-43",
-    "ada": "ada:ft-ccb-lab-members-2022-10-30-03-13-13"
+    "ada": "ada:ft-ccb-lab-members-2022-10-30-15-30-17"
 }
 
 def prompt_gpt3(prompt):

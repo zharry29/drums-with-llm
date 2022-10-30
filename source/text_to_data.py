@@ -14,7 +14,7 @@ def strip_empty_measure(score):
         else:
             return False
     while is_first_measure_empty(score):
-        score = score[4:]
+        score = score[16:]
         stripped = True
     return score, stripped
 
