@@ -45,7 +45,7 @@ python anaylsis.py
 If you find our work useful, please cite
 ```
 @inproceedings{zhang2023drums,
-  title={Large Language Models Learn to Drums},
+  title={Large Language Models Learn to Drum},
   author={Zhang, Li and Callison-Burch, Chris},
   booktitle={The AAAI-23 Workshop on Creative AI Across Modalities},
   year={2023}
