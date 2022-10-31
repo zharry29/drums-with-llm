@@ -1,2 +1,3 @@
 *.zip
 source/gpt3_finetune.sh
+source/_private/*
