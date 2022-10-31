@@ -1,5 +1,0 @@
-Better preprocessing
-- Remove empty M1
-- Remove those shorter than 16 bars
-
-- Consider velocity
