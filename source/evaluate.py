@@ -3,13 +3,11 @@ import openai
 from text_to_midi import convert_to_midi
 import sys
 
-openai.api_key_path = "../source/api_keys/harry.key"
+openai.api_key_path = "../source/_private/harry.key"
 model = sys.argv[1]
-model_to_name = {
-    "davinci": "davinci:ft-ccb-lab-members-2022-10-30-16-54-42",
-    "curie": "curie:ft-ccb-lab-members-2022-10-28-02-14-43",
-    "ada": "ada:ft-ccb-lab-members-2022-10-30-15-30-17"
-}
+with open("../source/_private/trained_models.tsv") as f:
+    lines = f.readlines()
+    model_to_name = {line.strip().split('\t')[0]: line.strip().split('\t')[1] for line in lines}
 
 def prompt_gpt3(prompt):
     res = openai.Completion.create(
