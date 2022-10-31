@@ -1,4 +1,4 @@
-# AI Drum Generation: Large Language Models Learn to Drum
+# AI Drum Generation: Language Models Learn to Drum
 
 This repository contains resources pertaining to the ongoing project of drum generation with NLP techniques, led by Li Zhang at the University of Pennsylvania. Currently, the assets here reflect our efforts until 10/31/2022.
 
@@ -9,7 +9,7 @@ Now that you understand the predicament about drums in modern music: there simpl
 
 The details of our work so far can be found in our paper to be published. Here, I'll show you how I trained one of the state-of-the-art language models, GPT3, to be a decent drummer. 
 
-## Prepare Data
+## Generate Drums
 The best data source for nontrivial drumming I can find is the [Groove MIDI Dataset](https://magenta.tensorflow.org/datasets/groove) containing MIDI files of drum grooves, recorded by professional drummers playing solo on an electronic drum kit. For non-drummers, a _groove_ is basically what makes you dance when you hear some music (quoting Sarah Thawer, one of the greatest drummers). The drum grooves in this dataset is especially suitable because they are humanly (none of the drum machine looper shenanigans), diverse (spanning many genres, with the sad exception of metal), and sound good. 
 
 ```

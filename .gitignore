@@ -1,3 +1,4 @@
 *.zip
 source/gpt3_finetune.sh
 source/_private/*
+e-gmd-v1.0.0/*
