@@ -44,10 +44,15 @@ python anaylsis.py
 ## Citation
 If you find our work useful, please cite
 ```
-@inproceedings{zhang2023drums,
-  title={Large Language Models Learn to Drum},
-  author={Zhang, Li and Callison-Burch, Chris},
-  booktitle={The AAAI-23 Workshop on Creative AI Across Modalities},
-  year={2023}
+@inproceedings{gpt3drum,
+  author    = {Li Zhang  and  Chris Callison-Burch},
+  title     = {Language Models are Drummers: Drum Composition with Natural Language Pre-Training},
+  venue = {AAAI 2023 1st workshop on Creative AI across Modalities},
+  month     = {Feburary},
+  year      = {2023},
+  address   = {Washington, D.C., USA},
+  abstract  = {Automatic music generation with artificial intelligence typically requires a large amount of data which is hard to obtain for many less common genres and musical instruments. To tackle this issue, we present ongoing work and preliminary findings on the possibility for deep models to transfer knowledge from language to music, by finetuning large language models pre-trained on a massive text corpus on only hundreds of MIDI files of drum performances. We show that by doing so, one of the largest, state-of-the-art models (GPT3) is capable of generating reasonable drum grooves, while models that are not pre-trained (Transformer) shows no such ability beyond naive repetition. Evaluating generated music is a challenging task, more so is evaluating drum grooves with little precedence in literature. Hence, we propose a tailored structural evaluation method and analyze drum grooves produced by GPT3 compared to those played by human professionals, exposing the strengths and weaknesses of such generation by language-to-music transfer. Our findings suggest that language-to-music transfer learning with large language models is viable and promising.},
+  url       = {https://arxiv.org/abs/2301.01162},
+  software  = {https://github.com/zharry29/drums-with-llm},
 }
 ```
