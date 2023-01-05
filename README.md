@@ -1,4 +1,4 @@
-# AI Drum Generation: Language Models Learn to Drum
+# Drum Generation with NLP/AI: Language Models are Drummers
 
 This repository contains resources pertaining to the ongoing project of drum generation with NLP techniques, led by Li Zhang at the University of Pennsylvania. Currently, the assets here reflect our efforts until 10/31/2022.
 
@@ -40,6 +40,23 @@ To perform analyses in the paper, run
 ```
 python anaylsis.py
 ```
+
+## Demos
+For all the clips, the first 2 bars (~3 seconds) are given by the dataset, while the rest are either composed by human or by a model. The audio is then synthesized with a software (Superior Drummer 3).
+First group:
+
+https://user-images.githubusercontent.com/14244538/210682727-9b878571-201b-4540-9c52-8cd9d93fe470.mp4
+
+https://user-images.githubusercontent.com/14244538/210682739-c0401f72-0c42-469c-8e10-594f67c4ebcf.mp4
+
+
+Second group:
+
+https://user-images.githubusercontent.com/14244538/210682793-e8c10463-4aab-4ef0-96fd-cbd84d2aaea5.mp4
+
+https://user-images.githubusercontent.com/14244538/210682767-48868a99-e10b-4684-ab74-853011a333c4.mp4
+
+For each group, which do you think is written by GPT3?
 
 ## Citation
 If you find our work useful, please cite
